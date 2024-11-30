@@ -35,10 +35,13 @@
         alert("il n'existe aucun compte !");
       } else {
         let pr = JSON.parse(profile);
+        console.log(pr.pw);
+        console.log(data.pw);
         if (pr.pw === data.pw) {
           let expireDate = new Date(); // today
           expireDate.setDate(expireDate.getDate() + 3);
           document.cookie = `username=${data.username};path=/cms/; expires=${expireDate.toUTCString()}`;
+          document.location.href = "../profile";
         }
         else {
           alert("pw incorrect !");
