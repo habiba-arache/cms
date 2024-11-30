@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="../shared.css" />
+<link rel="stylesheet" href="index.css" />
+
+<head>
+  <title>login</title>
+  <meta charset="UTF-8" />
+</head>
+<html>
+
+<body>
+  <div class="container">
+    <h1>Connection</h1>
+    <h3>login :</h3>
+    <form onsubmit="login(event)">
+      <div>Nom d'utilisateur:</div>
+      <input type="text" required class="inputContainer" name="username" />
+      <div>Mot de passe :</div>
+      <input type="password" required class="inputContainer" name="pw" />
+      <button type="submit">Log in</button>
+    </form>
+
+    <a href="../signin">
+      <h3>créer un compte ?</h3>
+    </a>
+  </div>
+  <script>
+    function login(event) {
+      event.preventDefault();
+      const formData = new FormData(event.target);
+      const data = Object.fromEntries(formData.entries());
+      const profile = localStorage.getItem(data.username);
+
+      if (!profile) {
+        alert("il n'existe aucun compte !");
+      } else {
+        let pr = JSON.parse(profile);
+        if (pr.pw === data.pw) {
+          let expireDate = new Date(); // today
+          expireDate.setDate(expireDate.getDate() + 3);
+          document.cookie = `username=${data.username};path=/cms/; expires=${expireDate.toUTCString()}`;
+        }
+        else {
+          alert("pw incorrect !");
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

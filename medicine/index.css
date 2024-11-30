@@ -1,0 +1,15 @@
+img{
+  align-self: center;
+  cursor: pointer;
+  height: 4ex;
+  width: 4ex;
+  border:#0A1828 2px solid;
+  border-radius: 6px;
+}
+input{
+  width: 50ex;
+}
+.reasult{
+  width: 30ex;
+  align-self: center;
+}

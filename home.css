@@ -1,0 +1,86 @@
+
+.top-bar 
+{
+  background-color: #d9dfdb;
+  display: flex;
+  justify-content: space-between;
+  height:10ex; 
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+}
+.logo{
+  height: 14ex;
+  border-radius: 5px;
+}
+.buttonsContainer
+{
+  display:flex;
+  align-self: self-end; /*align them */
+}
+.HomeButton
+{
+  color: #0A1828;
+  padding: 10% 0%;
+  width: 18ex;
+  text-align: center;
+  cursor: pointer; 
+  font-weight: bold;
+} 
+.HomeButton:hover{
+  background-color: #0A1828;
+  color: #bfa181c5;
+
+}
+.scrollableContainer{
+  overflow: hidden;
+  scrollbar-width: none;
+  background-color:rgba(10, 35, 46, 0.459) ;
+}
+.HomeSection 
+{
+  justify-items: center;
+  align-content: center;
+  margin-top: 16ex; 
+}
+.HomeHeader{
+  color: #0A1828;
+  background: #bfa181c5;
+}
+.HomeHeader:hover{
+  background-color: #0A1828;
+  color: #bfa181c5;
+}
+.description{
+    margin-top: -4ex;
+    color:#cff1ff ;
+}
+.bottomMsg{
+   padding-top: 20ex;
+   color: #d9dfdb;
+}
+.bottomBar{
+  background-color: #d9dfdb;
+  column-gap: 10%;
+  height: 50ex;
+}
+.imgBox{
+  margin-top: 10ex ; 
+  width: 25ex;
+  height: 50%;
+  background-size: cover;
+  border: #0A1828 2px solid;
+  color: #0A1828 ;
+  font-weight: bold;
+  font-size: 3ex;
+  justify-items: center;
+  align-content: center;
+  cursor: pointer;
+}
+.colors {
+  background: #178582;
+  background: #BFA181;
+  background: #d9dfdb;
+  background: #b4d0dba8;
+  background: #0A1828;
+  }

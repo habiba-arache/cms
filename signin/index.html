@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<link rel="stylesheet" href="./index.css" />
+<link rel="stylesheet" href="../shared.css" />
+
+<head>
+  <title>signin</title>
+  <meta charset="UTF-8" />
+</head>
+<html>
+
+<body>
+  <div class="container">
+    <h1>bienvenue!</h1>
+    <form action="" onsubmit="save(event)">
+      <div class="row">
+        <h4>nom Utilisateur :</h4>
+        <input class="inputContainer" type="text" name="username"></input>
+      </div>
+      <div class="row">
+        <h4>nom :</h4>
+        <input class="inputContainer" type="text" name="Lname"></input>
+      </div>
+      <div class="row">
+        <h4>prenom :</h4>
+        <input class="inputContainer" type="text" name="Fname"></input>
+      </div>
+      <div class="row">
+        <h4>num tel :</h4>
+        <input class="inputContainer" type="tel" name="phone"></input>
+      </div>
+      <div class="row">
+        <h4>Mail :</h4>
+        <input class="inputContainer" type="email" name="mail"></input>
+      </div>
+      <div class="row">
+        <h4>mot de passe :</h4>
+        <input class="inputContainer" type="password" name="pw"></input>
+      </div>
+      <div class="row">
+        <h4>confirmation mp:</h4>
+        <input class="inputContainer" type="password" name="Cpw"></input>
+      </div>
+      <button type="submit" class="inputContainer" style="cursor: pointer">
+        créer le compte
+      </button>
+    </form>
+  </div>
+  <script>
+    function save(event) {
+      event.preventDefault()
+      // form to {[k,v]...}
+      const formData = new FormData(event.target);
+      // formdata to object   
+      const data = Object.fromEntries(formData.entries());
+
+      if (localStorage.getItem(data.username) !== null) {
+        localStorage.setItem(data.username, JSON.stringify(data));
+        document.location.href = '../login';
+      }
+      else
+        alert('username already in use :) ');
+
+
+      // in login ewe need to do something similar 
+      // document.cookie = `username=${data.username};path=/cms/; expires=sunday, 22 Dec 2024 23:59:59 GMT`;
+
+
+    }
+  </script>
+</body>
+
+</html>

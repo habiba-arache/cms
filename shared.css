@@ -1,0 +1,47 @@
+body{
+  background-image: url(https://st2.depositphotos.com/1907633/8862/i/450/depositphotos_88628662-stock-photo-medicine-doctor-hand-working-with.jpg);
+  background-size: cover; 
+  background-attachment: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background-color:#b2cedad5;
+  border:#0A1828 2px solid;
+  border-radius: 6px;
+  color: #0A1828;
+  margin: 0% 25%;
+  margin-top: 5%;
+  text-align: center;
+}
+a {
+  text-decoration: none !important;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.inputContainer {
+  color:#cff1ff ;
+  background-color:#0A1828;
+  text-align: center;
+  margin: 2% ;
+  padding: 1%;
+  border-radius: 2px;
+}
+#username{
+  width: 60%;
+}
+.colors {
+  background: #178582;
+  background: #BFA181;
+  background: #b4d0dba8;
+  background: #0A1828;
+}
