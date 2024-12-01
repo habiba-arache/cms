@@ -2,101 +2,98 @@
 
 <link rel="stylesheet" href="./index.css" />
 <link rel="stylesheet" href="../shared.css" />
+
 <head>
   <title>profile</title>
   <meta charset="UTF-8" />
 </head>
 <html>
-  <body>
-    <script>
 
-      function getCookie(Cname) {
-        const cookies = document.cookie.split(";");
-        for (let i = 0; i < cookies.length; i++) {
-          let [key, value] = cookies[i].trim().split("=");
-          if (key === Cname) {
-            return value;
-          }
-        }
-        return null; 
+<body>
+  <script>
+    function hideInfos() {
+      document.getElementById("username").value = "guest";
+      document.getElementById("Lname").value = "";
+      document.getElementById("Fname").value = "";
+      document.getElementById("Number").value = "";
+      document.getElementById("Mail").value = "";
+      document.getElementById("isconnected").innerHTML = "Connection";
+    }
+    function showInfos() {
+      if (document.cookie) {
+        let accInfos = document.cookie.split(";")[0].split("=")[1].trim();
+        let profile = JSON.parse(accInfos);
+        document.getElementById("username").value = profile.username;
+        document.getElementById("Lname").value = profile.Lname;
+        document.getElementById("Fname").value = profile.Fname;
+        document.getElementById("Number").value = profile.phone;
+        document.getElementById("Mail").value = profile.mail;
       }
-      function hideInfos() {
-        document.getElementById("username").value = "guest";
-        document.getElementById("Lname").value = "";
-        document.getElementById("Fname").value = "";
-        document.getElementById("Number").value = "";
-        document.getElementById("Mail").value = "";
+    }
+    function changeContent() {
+      if (document.getElementById("username").value === "guest") {
+        document.location.href = "../login";
       }
-      function showInfos() {
-        document.getElementById("username").value = getCookie("username");
-        document.getElementById("Lname").value = getCookie("Lname");
-        document.getElementById("Fname").value = getCookie("Fname");
-        document.getElementById("Number").value = getCookie("number");
-        document.getElementById("Mail").value = getCookie("mail");
+      else {
+        hideInfos();
+        //edit cookies;
+        //document.cookie = 'acc= ;path=/cms/'
       }
-      document.addEventListener("DOMContentLoaded",()=>{
-        const cookies = document.cookie.split(";");
-        const x=document.getElementById("isconnected");
-         showInfos();
-         x.innerHTML="Deconnection"; //should be somewhere else !!
-        function changeContent() {
-          if (document.getElementById("username").value === "guest") {
-            document.location="../login";
-          }
-          else {
-            hideInfos();
-            x.innerHTML="Connection";
-            // document.location="../login";
-            }
-        }
-        x.addEventListener("click",changeContent);
-      });
-      
-    </script>
-    <div class="container">
-      <h1 id="header">Mon compte</h1>
-      <img src="profil.jpg" />
-      <h3>Info personnelles :</h3>
-      <div>
-        <h5 class="containerHeader">nom Utilisateur :</h5>
-        <input id="username" class="inputContainer" value="guest" readonly></input>
-      </div>
-      <div class="row informationsContainer">
-        <div>
-          <h5>nom :</h5>
-          <input class="inputContainer" id="Lname" readonly></input>
-          <h5>prenom :</h5>
-          <input class="inputContainer" id="Fname" readonly></input>
-        </div>
-        <div>
-          <h5>num tel :</h5>
-          <input class="inputContainer" id="Number" readonly></input>
-          <h5>Mail :</h5>
-          <input class="inputContainer" id="Mail" readonly></input>
-        </div>
-      </div>
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("hey ");
+      showInfos();
+      console.log("hey there");
+      let x = document.getElementById("isconnected");
+      if (document.getElementById("username").value === "guest" || document.getElementById("username").value === "") {//not connected
+        x.innerHTML = "Connection";
+      } else {
+        x.innerHTML = "Deconnection";
+      }
+      x.addEventListener("click", changeContent);
+    });
 
-      <h3>Infos du compte :</h3>
+  </script>
+  <div class="container">
+    <h1 id="header">Mon compte</h1>
+    <img src="profil.jpg" />
+    <h3>Info personnelles :</h3>
+    <div>
+      <h5 class="containerHeader">nom Utilisateur :</h5>
+      <input id="username" class="inputContainer" value="guest" readonly></input>
+    </div>
+    <div class="row informationsContainer">
       <div>
-        <div class="row informationsContainer">
-          <div
-            class="inputContainer"
-            style="cursor: pointer"
-            onclick="changePW()"
-          >
-            changer mot de passe
-          </div>
-          <div
-            class="inputContainer"
-            style="cursor: pointer"
-            onclick="deleteCookies()">
-            supprimer le compte
-          </div>
-        </div>
-        <!-- <button class="return_to_home" onclick="history.back()"> -->
-       <div id="isconnected" class="inputContainer" >Connection</div>
-        <a href="/cms"><div class="inputContainer">retour a l'accueil</div></a>
+        <h5>nom :</h5>
+        <input class="inputContainer" id="Lname" readonly></input>
+        <h5>prenom :</h5>
+        <input class="inputContainer" id="Fname" readonly></input>
+      </div>
+      <div>
+        <h5>num tel :</h5>
+        <input class="inputContainer" id="Number" readonly></input>
+        <h5>Mail :</h5>
+        <input class="inputContainer" id="Mail" readonly></input>
       </div>
     </div>
-  </body>
+
+    <h3>Infos du compte :</h3>
+    <div>
+      <div class="row informationsContainer">
+        <div class="inputContainer" style="cursor: pointer" onclick="changePW()">
+          changer mot de passe
+        </div>
+        <div class="inputContainer" style="cursor: pointer" onclick="deleteCookies()">
+          supprimer le compte
+        </div>
+      </div>
+      <!-- <button class="return_to_home" onclick="history.back()"> -->
+      <div id="isconnected" class="inputContainer">Connection</div>
+      <a href="/cms">
+        <div class="inputContainer">retour a l'accueil</div>
+      </a>
+    </div>
+  </div>
+</body>
+
 </html>

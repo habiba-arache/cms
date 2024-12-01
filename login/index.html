@@ -25,22 +25,21 @@
     </a>
   </div>
   <script>
-    function login(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-      const data = Object.fromEntries(formData.entries());
-      const profile = localStorage.getItem(data.username);
 
-      if (!profile) {
+    function login(event) {
+      event.preventDefault();//stop reloading tha page 
+      const formData = new FormData(event.target);
+      const inputData = Object.fromEntries(formData.entries());//from entries
+      const storedProfiles = localStorage.getItem(inputData.username);//get the infos of the intered username from local storage
+      if (!storedProfiles) {
         alert("il n'existe aucun compte !");
+        document.location.href = "../signin";
       } else {
-        let pr = JSON.parse(profile);
-        console.log(pr.pw);
-        console.log(data.pw);
-        if (pr.pw === data.pw) {
+        let foundAcc = JSON.parse(storedProfiles); //foundAcc is an object ,storedProf is a string 
+        if (foundAcc.pw === inputData.pw) {
           let expireDate = new Date(); // today
           expireDate.setDate(expireDate.getDate() + 3);
-          document.cookie = `username=${data.username};path=/cms/; expires=${expireDate.toUTCString()}`;
+          document.cookie = `acc=${storedProfiles};path=/cms/; expires=${expireDate.toUTCString()}`;
           document.location.href = "../profile";
         }
         else {

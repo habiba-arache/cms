@@ -54,18 +54,12 @@
       // formdata to object   
       const data = Object.fromEntries(formData.entries());
 
-      if (localStorage.getItem(data.username) !== null) {
-        localStorage.setItem(data.username, JSON.stringify(data));
+      if (localStorage.getItem(data.username) === null) {
+        localStorage.setItem(data.username, JSON.stringify(data));//create it
         document.location.href = '../login';
       }
-      else
+      else //already exist
         alert('username already in use :) ');
-
-
-      // in login ewe need to do something similar 
-      // document.cookie = `username=${data.username};path=/cms/; expires=sunday, 22 Dec 2024 23:59:59 GMT`;
-
-
     }
   </script>
 </body>
