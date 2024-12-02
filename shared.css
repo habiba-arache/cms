@@ -11,7 +11,8 @@ body{
   border:#0A1828 2px solid;
   border-radius: 6px;
   color: #0A1828;
-  margin: 0% 25%;
+  margin: 0% 20%;
+  padding: 1ex;
   margin-top: 5%;
   text-align: center;
 }
@@ -32,7 +33,9 @@ a {
   color:#cff1ff ;
   background-color:#0A1828;
   text-align: center;
-  margin: 2% ;
+  margin: 2%;
+  align-self: center;
+  justify-self:  center;
   padding: 1%;
   border-radius: 2px;
 }
@@ -44,4 +47,15 @@ a {
   background: #BFA181;
   background: #b4d0dba8;
   background: #0A1828;
+}
+
+@media (max-width:700px){
+  .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .container{
+    margin: 5% 15%;
+  }
 }

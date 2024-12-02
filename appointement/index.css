@@ -1,0 +1,23 @@
+.searchIcon {
+    align-self: center;
+    cursor: pointer;
+    border:#0A1828 2px solid;
+    height: 4ex;
+    width: 4ex;
+    border-radius: 6px;
+  }
+.check {
+  padding:0ex 10ex ;
+}
+.check input{
+  margin-left:-4ex;
+}
+input {
+  height: 3ex;
+  align-self: center;
+  width: 50%;
+}
+.reasult{
+  width: 30ex;
+  align-self: center;
+}

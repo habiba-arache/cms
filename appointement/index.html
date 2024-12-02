@@ -1,42 +1,55 @@
 <!DOCTYPE html>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="./index.css" />
 <link rel="stylesheet" href="../shared.css" />
+
 <head>
-  <title>medicine</title>
+  <title>appointement</title>
   <meta charset="UTF-8" />
 </head>
 <html>
-  <body>
-     <div class="container"> 
-            <div class="column">
-                <h2>chercher pour un medecin</h2>
-                <div class="row">
-                    <h4>nom du médicament:</h4>
-                <input class="inputContainer" type="text" name="medicineName"></input>
-                <img src="search.svg" onclick="getinfos()"></img>
-                </div>  
-            </div>  
-               
-        <div class="column">
-            <h2>Search's reasult</h2>
-            <div name="reasult"></div>
-        </div>
-     </div>  
-    
-    <script>
-      function getinfos() {
-        let val=document.getElementsByName("medicineName")[0].value;
-        let res=document.getElementsByName("reasult")[0];
-        // if (val in document.cookie.split("=")) {
-        //     res.innerHTML=`uploading data for ${val}`;
-        // }
-        // else{
-            res.innerHTML=`SORRY! No data for ${val}`;
-        // }
-      }
-     
-    </script>
-  </body>
-</html>
 
+<body>
+  <div class="container">
+
+    <h2>prenez un rendez-vous: </h2>
+    <div class="check row">
+      <h5>consultation en ligne</h5>
+      <input type="checkbox" name="on ligne">
+      <h5>consultation au cabinet</h5>
+      <input type="checkbox" name="in hospital">
+    </div>
+    <div class="row">
+
+      <h4>nom du médecin:</h4>
+      <input class="inputContainer" type="text" name="doctorName"></input>
+
+      <h4>date du rdv:</h4>
+      <input class="inputContainer" type="date" name="date"></input>
+
+      <img src="../search.svg" class="searchIcon" onclick="getinfos()"></img>
+    </div>
+
+    <div class="column">
+      <h2>Search's reasult</h2>
+      <div name="reasult"></div>
+    </div>
+
+  </div>
+
+  <script>
+    function getinfos() {
+      let val = document.getElementsByName("doctorName")[0].value;
+      let res = document.getElementsByName("reasult")[0];
+      // if (val in document.cookie.split("=")) {
+      //     res.innerHTML=`uploading data for ${val}`;
+      // }
+      // else{
+      res.innerHTML = `SORRY! No data for ${val}`;
+      // }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-img{
+.searchIcon{
   align-self: center;
   cursor: pointer;
   height: 4ex;
@@ -7,7 +7,8 @@ img{
   border-radius: 6px;
 }
 input{
-  width: 50ex;
+  height: 3ex;
+  width: 40ex;
 }
 .reasult{
   width: 30ex;

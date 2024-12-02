@@ -2,42 +2,43 @@
 
 <link rel="stylesheet" href="./index.css" />
 <link rel="stylesheet" href="../shared.css" />
+
 <head>
   <title>medicine</title>
   <meta charset="UTF-8" />
 </head>
 <html>
-  <body>
-     <div class="container"> 
-    
-            <div class="column">
-                <h2>chercher pour des médicament</h2>
-                <div class="row">
-                    <h4>nom du médicament:</h4>
-                <input class="inputContainer" type="text" name="medicineName"></input>
-                <img src="search.svg" onclick="getinfos()"></img>
-                </div>  
-            </div>  
-               
-        <div class="column">
-            <h2 class="reasult">Search's reasult</h2>
-            <div name="reasult"></div>
-        </div>
-     </div>  
-    
-    <script>
-      function getinfos() {
-        let val=document.getElementsByName("medicineName")[0].value;
-        let res=document.getElementsByName("reasult")[0];
-        // if (val in document.cookie.split("=")) {
-        //     res.innerHTML=`uploading data for ${val}`;
-        // }
-        // else{
-            res.innerHTML=`SORRY! No data for ${val}`;
-        // }
-      }
-     
-    </script>
-  </body>
-</html>
 
+<body>
+  <div class="container">
+    <div class="column">
+      <h2>chercher pour des médicament</h2>
+      <div class="row">
+        <h4>nom du médicament:</h4>
+        <input class="inputContainer" type="text" name="medicineName"></input>
+        <img src="../search.svg" class="searchIcon" onclick="getinfos()"></img>
+      </div>
+    </div>
+
+    <div class="column">
+      <h2 class="reasult">Search's reasult</h2>
+      <div name="reasult"></div>
+    </div>
+  </div>
+
+  <script>
+    function getinfos() {
+      let val = document.getElementsByName("medicineName")[0].value;
+      let res = document.getElementsByName("reasult")[0];
+      // if (val in document.cookie.split("=")) {
+      //     res.innerHTML=`uploading data for ${val}`;
+      // }
+      // else{
+      res.innerHTML = `SORRY! No data for ${val}`;
+      // }
+    }
+
+  </script>
+</body>
+
+</html>

@@ -20,8 +20,8 @@
       document.getElementById("isconnected").innerHTML = "Connection";
     }
     function showInfos() {
-      if (document.cookie) {
-        let accInfos = document.cookie.split(";")[0].split("=")[1].trim();
+      let accInfos = document.cookie.split(";")[0].split("=")[1].trim();
+      if (accInfos !== "") {
         let profile = JSON.parse(accInfos);
         document.getElementById("username").value = profile.username;
         document.getElementById("Lname").value = profile.Lname;
@@ -32,18 +32,25 @@
     }
     function changeContent() {
       if (document.getElementById("username").value === "guest") {
-        document.location.href = "../login";
+        document.location.href = `../login`;
       }
       else {
         hideInfos();
-        //edit cookies;
-        //document.cookie = 'acc= ;path=/cms/'
+        document.cookie = 'acc= ;path=/cms/'
+      }
+    }
+    function deleteAcc() {
+      let user = document.getElementById("username").value;
+      if (user === "guest") {
+        alert("tu n'es pas connecte!");
+      } else {
+        localStorage.removeItem(user);
+        document.cookie = `acc= ;path=/cms/`;
+        alert("compte supprime!");
       }
     }
     document.addEventListener("DOMContentLoaded", () => {
-      console.log("hey ");
       showInfos();
-      console.log("hey there");
       let x = document.getElementById("isconnected");
       if (document.getElementById("username").value === "guest" || document.getElementById("username").value === "") {//not connected
         x.innerHTML = "Connection";
@@ -80,10 +87,7 @@
     <h3>Infos du compte :</h3>
     <div>
       <div class="row informationsContainer">
-        <div class="inputContainer" style="cursor: pointer" onclick="changePW()">
-          changer mot de passe
-        </div>
-        <div class="inputContainer" style="cursor: pointer" onclick="deleteCookies()">
+        <div class="inputContainer" style="cursor: pointer" onclick="deleteAcc()">
           supprimer le compte
         </div>
       </div>
